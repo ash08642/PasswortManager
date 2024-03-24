@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>OPENSSL_DLL;BSONCXX_DLL;MONGOCXX_DLL;ZLIB_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\ahmad\Desktop\Dependencies\build\include\openssl;C:\Users\ahmad\Desktop\Dependencies\build\include;C:\Users\ahmad\Desktop\Dependencies\WxWidgets\include;C:\Users\ahmad\Desktop\Dependencies\WxWidgets\include\msvc;C:\Users\ahmad\Desktop\Dependencies\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ahmad\Desktop\Dependencies\vcpkg\installed\x64-windows-static\include;C:\Users\ahmad\Desktop\Dependencies\build\include\openssl;C:\Users\ahmad\Desktop\Dependencies\build\include;C:\Users\ahmad\Desktop\Dependencies\WxWidgets\include;C:\Users\ahmad\Desktop\Dependencies\WxWidgets\include\msvc;C:\Users\ahmad\Desktop\Dependencies\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -123,7 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>OPENSSL_DLL;BSONCXX_DLL;MONGOCXX_DLL;ZLIB_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\ahmad\Desktop\Dependencies\build\include\openssl;C:\Users\ahmad\Desktop\Dependencies\build\include;C:\Users\ahmad\Desktop\Dependencies\WxWidgets\include;C:\Users\ahmad\Desktop\Dependencies\WxWidgets\include\msvc;C:\Users\ahmad\Desktop\Dependencies\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ahmad\Desktop\Dependencies\vcpkg\installed\x64-windows-static\include;C:\Users\ahmad\Desktop\Dependencies\build\include\openssl;C:\Users\ahmad\Desktop\Dependencies\build\include;C:\Users\ahmad\Desktop\Dependencies\WxWidgets\include;C:\Users\ahmad\Desktop\Dependencies\WxWidgets\include\msvc;C:\Users\ahmad\Desktop\Dependencies\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -136,15 +136,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AppSetting.cpp" />
     <ClCompile Include="Crypto.cpp" />
+    <ClCompile Include="CustomButton.cpp" />
+    <ClCompile Include="HttpClient.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainFrame.cpp" />
     <ClCompile Include="MasterAccount.cpp" />
+    <ClCompile Include="PasswordManagerApp.cpp" />
+    <ClCompile Include="RedisterationFrame.cpp" />
+    <ClCompile Include="SignUpPanel.cpp" />
+    <ClCompile Include="SignInPanel.cpp" />
+    <ClCompile Include="SVGPanel.cpp" />
     <ClCompile Include="Team.cpp" />
+    <ClCompile Include="TextBox.cpp" />
+    <ClCompile Include="wxImagePanel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppSetting.h" />
     <ClInclude Include="Crypto.h" />
+    <ClInclude Include="CustomButton.h" />
+    <ClInclude Include="HttpClient.h" />
+    <ClInclude Include="MainFrame.h" />
     <ClInclude Include="MasterAccount.h" />
+    <ClInclude Include="PasswordManagerApp.h" />
+    <ClInclude Include="RedisterationFrame.h" />
+    <ClInclude Include="SignUpPanel.h" />
+    <ClInclude Include="SignInPanel.h" />
+    <ClInclude Include="SVGPanel.h" />
     <ClInclude Include="Team.h" />
+    <ClInclude Include="TextBox.h" />
+    <ClInclude Include="wxImagePanel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

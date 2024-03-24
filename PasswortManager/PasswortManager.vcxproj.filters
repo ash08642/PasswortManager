@@ -17,6 +17,12 @@
     <Filter Include="Helpers">
       <UniqueIdentifier>{55ff8a38-31fc-4f4e-a528-5308f1c59b2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="App">
+      <UniqueIdentifier>{b70d5b9a-dd42-4fe6-8070-b5c5ea5fdc9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Custom Controls">
+      <UniqueIdentifier>{dcb45bd5-7e4d-4eda-8c33-62c413ae3956}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -31,6 +37,39 @@
     <ClCompile Include="Crypto.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
+    <ClCompile Include="PasswordManagerApp.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="RedisterationFrame.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrame.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBox.cpp">
+      <Filter>Custom Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="AppSetting.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="SignInPanel.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="SignUpPanel.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomButton.cpp">
+      <Filter>Custom Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="SVGPanel.cpp">
+      <Filter>Custom Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="wxImagePanel.cpp">
+      <Filter>Custom Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpClient.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MasterAccount.h">
@@ -40,6 +79,39 @@
       <Filter>Models</Filter>
     </ClInclude>
     <ClInclude Include="Crypto.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PasswordManagerApp.h">
+      <Filter>App</Filter>
+    </ClInclude>
+    <ClInclude Include="RedisterationFrame.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrame.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBox.h">
+      <Filter>Custom Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="AppSetting.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="SignInPanel.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="SignUpPanel.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomButton.h">
+      <Filter>Custom Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="SVGPanel.h">
+      <Filter>Custom Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="wxImagePanel.h">
+      <Filter>Custom Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpClient.h">
       <Filter>Helpers</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,22 +1,5 @@
 #include <wx/wx.h>
-#include "Crypto.h"
 
-class App : public wxApp {
-public:
-    
+#include "PasswordManagerApp.h"
 
-    bool OnInit() {
-        wxFrame* window = new wxFrame(NULL, wxID_ANY, "GUI Test", wxDefaultPosition, wxSize(600, 400));
-        wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
-        wxString helloText = "HelloWorld";
-        wxStaticText* text = new wxStaticText(window, wxID_ANY, Crypto::generateSalt(),
-            wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE_HORIZONTAL);
-        text->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-        sizer->Add(text, 1, wxALIGN_CENTER);
-        window->SetSizer(sizer);
-        window->Show();
-        return true;
-    }
-};
-
-wxIMPLEMENT_APP(App);
+wxIMPLEMENT_APP(PasswordManagerApp);

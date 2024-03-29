@@ -136,15 +136,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Account.cpp" />
+    <ClCompile Include="AccountPanel.cpp" />
     <ClCompile Include="AppSetting.cpp" />
+    <ClCompile Include="BackgroundPanel.cpp" />
     <ClCompile Include="Crypto.cpp" />
     <ClCompile Include="CustomButton.cpp" />
     <ClCompile Include="HttpClient.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainAddEditAccount.cpp" />
     <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="MainViewAccount.cpp" />
     <ClCompile Include="MasterAccount.cpp" />
+    <ClCompile Include="MoreInfoDialog.cpp" />
+    <ClCompile Include="NewAccountDialog.cpp" />
     <ClCompile Include="PasswordManagerApp.cpp" />
+    <ClCompile Include="Password.cpp" />
     <ClCompile Include="RedisterationFrame.cpp" />
+    <ClCompile Include="SearchBar.cpp" />
+    <ClCompile Include="SignInDialog.cpp" />
     <ClCompile Include="SignUpPanel.cpp" />
     <ClCompile Include="SignInPanel.cpp" />
     <ClCompile Include="SVGPanel.cpp" />
@@ -153,14 +163,24 @@
     <ClCompile Include="wxImagePanel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Account.h" />
+    <ClInclude Include="AccountPanel.h" />
     <ClInclude Include="AppSetting.h" />
+    <ClInclude Include="BackgroundPanel.h" />
     <ClInclude Include="Crypto.h" />
     <ClInclude Include="CustomButton.h" />
     <ClInclude Include="HttpClient.h" />
+    <ClInclude Include="MainAddEditAccount.h" />
     <ClInclude Include="MainFrame.h" />
+    <ClInclude Include="MainViewAccount.h" />
     <ClInclude Include="MasterAccount.h" />
+    <ClInclude Include="MoreInfoDialog.h" />
+    <ClInclude Include="NewAccountDialog.h" />
     <ClInclude Include="PasswordManagerApp.h" />
+    <ClInclude Include="Password.h" />
     <ClInclude Include="RedisterationFrame.h" />
+    <ClInclude Include="SearchBar.h" />
+    <ClInclude Include="SignInDialog.h" />
     <ClInclude Include="SignUpPanel.h" />
     <ClInclude Include="SignInPanel.h" />
     <ClInclude Include="SVGPanel.h" />

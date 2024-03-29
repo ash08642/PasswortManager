@@ -38,6 +38,8 @@ public:
 	bool validate_signUpData();
 	bool validate_signInData();
 
+	void clear_fields();
+
 	void paintEvent(wxPaintEvent& evt);
 	void paintNow();
 	void OnSize(wxSizeEvent& event);

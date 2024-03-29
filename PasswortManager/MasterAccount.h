@@ -1,22 +1,26 @@
 #pragma once
+
 #include <wx/wx.h>
+#include <wx/textfile.h>
+#include <sstream>
 #include <vector>
-#include "Team.h"
+#include "Crypto.h"
 
 class MasterAccount
 {
 private:
-	short id;
-	wxString identity;
-	wxString master_Password;
-	wxString privateKey;
-	wxString publicKey;
-	wxDateTime dateCreated;
-	wxDateTime dateUpdated;
-	std::vector<Team> teams;
-	std::vector<wxString> accounts;
+	wxString username;
+	wxString password;
+	std::string key;
+	std::string auth_key;
 
 public:
-	void set_masterAccount(std::string iden, std::string pass);
+	wxString get_username();
+	wxString get_password();
+	std::string get_key();
+	std::string get_auth_key();
+
+	void Sign_InUp(wxString id, wxString pass);
+	void SignOut();
 };
 

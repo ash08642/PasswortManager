@@ -32,7 +32,15 @@ public:
 		CreateNewAccount,
 		AlreadyHaveAnAccount,
 		DontHaveAnAccount,
-		Login
+		Login,
+		Edit,
+		Delete,
+		Cancel,
+		Confirm,
+		AddNewAccount,
+		MoreInfo,
+		PleaseFillAllFields,
+		PasswordsDoNotMatch
 	};
 
 	std::map<int, std::string> selected_language;
@@ -45,7 +53,15 @@ public:
 		{TextKeys::CreateNewAccount, "Create account"},
 		{TextKeys::AlreadyHaveAnAccount, "Already have an account?"},
 		{TextKeys::DontHaveAnAccount, "Don't have an account?"},
-		{TextKeys::Login, "Login"}
+		{TextKeys::Login, "Login"},
+		{TextKeys::Edit, "Edit"},
+		{TextKeys::Delete, "Delete"},
+		{TextKeys::Cancel, "Cancel"},
+		{TextKeys::Confirm, "Confirm"},
+		{TextKeys::AddNewAccount, "Add new Account"},
+		{TextKeys::MoreInfo, "Info"},
+		{TextKeys::PleaseFillAllFields, "Please fill all Fields"},
+		{TextKeys::PasswordsDoNotMatch, "Passwords do not match"}
 	};
 	std::map<int, std::string> german = {
 		{TextKeys::Username, "Benutzername"},
@@ -55,7 +71,15 @@ public:
 		{TextKeys::CreateNewAccount, "Konto erstellen"},
 		{TextKeys::AlreadyHaveAnAccount, "Sie haben bereits ein Konto?"},
 		{TextKeys::DontHaveAnAccount, "Haben Sie noch kein Konto?"},
-		{TextKeys::Login, "anmelden"}
+		{TextKeys::Login, "anmelden"},
+		{TextKeys::Edit, "Bearbeiten"},
+		{TextKeys::Delete, "Entfernen"},
+		{TextKeys::Cancel, "Abbrechen"},
+		{TextKeys::Confirm, "Bestätigen"},
+		{TextKeys::AddNewAccount, "Neu Konto hinzufügen"},
+		{TextKeys::MoreInfo, "Info"},
+		{TextKeys::PleaseFillAllFields, "Bitte alle Feldern füllen"},
+		{TextKeys::PasswordsDoNotMatch, "Passwörter stimmen nicht überein"}
 	};
 	
 	void changeLanguage(Languages choice);

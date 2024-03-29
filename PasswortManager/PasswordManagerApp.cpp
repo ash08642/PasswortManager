@@ -25,6 +25,10 @@ void PasswordManagerApp::display_Mainframe_signIn(wxMouseEvent& event)
 	if (redisterationFrame->validate_signInData())
 	{
 		wxMessageBox("signIn Succesesful");
+		redisterationFrame->clear_fields();
+		mainFrame = new MainFrame("Password Manager", wxDefaultPosition, wxDefaultSize, appSetting, httpCleint, masterAccount);
+		redisterationFrame->Show(false);
+		mainFrame->Show(true);
 	}
 	else
 	{
@@ -36,6 +40,10 @@ void PasswordManagerApp::display_Mainframe_signUp(wxMouseEvent& event)
 	if (redisterationFrame->validate_signUpData())
 	{
 		wxMessageBox("signUp Succesesful");
+		redisterationFrame->clear_fields();
+		mainFrame = new MainFrame("Password Manager", wxDefaultPosition, wxDefaultSize, appSetting, httpCleint, masterAccount);
+		redisterationFrame->Show(false);
+		mainFrame->Show(true);
 	}
 	else
 	{

@@ -20,6 +20,8 @@ public:
 	wxString get_identtity();
 	wxString get_pass();
 
+	void clear_fields();
+
 private:
 	TextBox* identityBox = nullptr;
 	TextBox* passwordBox = nullptr;

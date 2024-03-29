@@ -87,39 +87,57 @@ bool RedisterationFrame::validate_signUpData()
 {
 	if (signUpPanel->get_identtity() == wxEmptyString || signUpPanel->get_pass() == wxEmptyString || signUpPanel->get_confirmPass() == wxEmptyString)
 	{
-		wxMessageBox("atleast one string is empty");
+		wxMessageBox(appSetting->selected_language[AppSetting::TextKeys::PleaseFillAllFields]);
 		return false;
 	}
 	if (signUpPanel->get_pass() == signUpPanel->get_confirmPass())
 	{
-		masterAccount->set_masterAccount(signUpPanel->get_identtity().ToStdString(), signUpPanel->get_pass().ToStdString());
+		masterAccount->Sign_InUp(signUpPanel->get_identtity(), signUpPanel->get_pass());
 
 		std::vector<std::string> keys = { "identity", "password" };
 		std::vector<std::string> values = { 
-			signUpPanel->get_identtity().ToStdString(),
-			Crypto::Hash2_SHA256( signUpPanel->get_pass().ToStdString(), 1000, signUpPanel->get_identtity().ToStdString())
-			//signUpPanel->get_pass().ToStdString()
+			masterAccount->get_username().ToStdString(),
+			masterAccount->get_auth_key()
 		};
 		wxString response = httpCleint->post_req("/signUp", keys, values);
-		wxMessageBox(response);
-
-		return true;
+		if (response != "error")
+		{
+			return true;
+		}
+		return false;
 	}
 
-	wxMessageBox("pass diff");
+	wxMessageBox(appSetting->selected_language[AppSetting::TextKeys::PasswordsDoNotMatch]);
 	return false;
 }
 bool RedisterationFrame::validate_signInData()
 {
 	if (signInPanel->get_identtity() == wxEmptyString || signInPanel->get_pass() == wxEmptyString)
 	{
-		wxMessageBox("atleast one string is empty");
+		wxMessageBox(appSetting->selected_language[AppSetting::TextKeys::PleaseFillAllFields]);
 		return false;
 	}
 
-	wxMessageBox("strings same");
-	masterAccount->set_masterAccount(signInPanel->get_identtity().ToStdString(), signInPanel->get_pass().ToStdString());
-	return true;
+	masterAccount->Sign_InUp(signInPanel->get_identtity(), signInPanel->get_pass());
+
+	std::vector<std::string> keys = { "identity", "password" };
+	std::vector<std::string> values = {
+		masterAccount->get_username().ToStdString(),
+		masterAccount->get_auth_key()
+	};
+	
+	wxString response = httpCleint->get_req("/login", keys, values);
+	if (response != "error")
+	{
+		return true;
+	}
+	return false;
+}
+
+void RedisterationFrame::clear_fields()
+{
+	signInPanel->clear_fields();
+	signUpPanel->clear_fields();
 }
 
 void RedisterationFrame::paintEvent(wxPaintEvent& evt)

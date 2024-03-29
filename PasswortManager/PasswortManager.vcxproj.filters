@@ -70,6 +70,36 @@
     <ClCompile Include="HttpClient.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
+    <ClCompile Include="AccountPanel.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Account.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Password.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="MainAddEditAccount.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="MainViewAccount.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundPanel.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchBar.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="MoreInfoDialog.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="SignInDialog.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="NewAccountDialog.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MasterAccount.h">
@@ -113,6 +143,36 @@
     </ClInclude>
     <ClInclude Include="HttpClient.h">
       <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountPanel.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Account.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Password.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="MainAddEditAccount.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="MainViewAccount.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundPanel.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchBar.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="MoreInfoDialog.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="SignInDialog.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="NewAccountDialog.h">
+      <Filter>Views</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

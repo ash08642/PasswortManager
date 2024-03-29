@@ -15,7 +15,7 @@ public:
 	HttpClient(std::string url, int port);
 	~HttpClient();
 
-	std::string get_req();
+	std::string get_req(std::string url, std::vector<std::string> keys, std::vector<std::string> values);
 	std::string post_req(std::string url, std::vector<std::string> keys, std::vector<std::string> values);
 
 private:

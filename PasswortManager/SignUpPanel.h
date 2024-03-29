@@ -21,6 +21,8 @@ public:
 	wxString get_pass();
 	wxString get_confirmPass();
 
+	void clear_fields();
+
 private:
 	TextBox* identityBox = nullptr;
 	TextBox* passwordBox = nullptr;

@@ -85,6 +85,13 @@ void SignInPanel::hidePassword(wxMouseEvent& event)
     Layout();
 }
 
+void SignInPanel::clear_fields()
+{
+    identityBox->get_textCtrl()->SetValue("");
+    passwordBox->get_textCtrl()->ChangeValue("");
+    shownPasswordBox->get_textCtrl()->ChangeValue("");
+}
+
 wxStaticText* SignInPanel::get_goCreateAccountButton()
 {
     return dontHaveAnAccount->getClickablePanel();

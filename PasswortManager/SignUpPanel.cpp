@@ -122,6 +122,15 @@ void SignUpPanel::hidePassword(wxMouseEvent& event)
     Layout();
 }
 
+void SignUpPanel::clear_fields()
+{
+    identityBox->get_textCtrl()->SetValue("");
+    passwordBox->get_textCtrl()->ChangeValue("");
+    shownPasswordBox->get_textCtrl()->ChangeValue(wxEmptyString);
+    confirmPasswordBox->get_textCtrl()->ChangeValue("");
+    confirmShownPasswordBox->get_textCtrl()->ChangeValue(wxEmptyString);
+}
+
 wxStaticText* SignUpPanel::get_alreadyRegisteredButton()
 {
     return alreadyRegisteredButton->getClickablePanel();

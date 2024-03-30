@@ -15,7 +15,6 @@ public:
 private:
 	SVGPanel* barSVG;
 	TextBox* searchBar = nullptr;
-	TextBox* readOnlySearchBar = nullptr;
 	SVGPanel* searchSVG;
 	wxSizer* mainSizer;
 };

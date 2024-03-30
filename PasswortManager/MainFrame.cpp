@@ -28,29 +28,29 @@ MainFrame::MainFrame(const wxString& title, const wxPoint& pos, const wxSize& si
 		wxMessageBox("Dosis-Light Failed to load");
 	}
 
-	labelFont = wxFont(wxFontInfo(14).FaceName("Dosis").Bold());
+	labelFont = wxFont(wxFontInfo(14).FaceName("Dosis-Light").Bold());
+	textFont = wxFont(wxFontInfo(14).FaceName("Dosis-Light"));
 
 	//masterAccount = new MasterAccount{};
 	this->SetBackgroundColour(wxColor(0, 0, 0));
 
 	wxSizer* control_sizer = new wxBoxSizer(wxVERTICAL);
 	control_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(70, 850));
-	control_panel->SetBackgroundColour(wxColor(54, 100, 117));
+	control_panel->SetBackgroundColour(*appSetting->order21);
 
 	accounts_sizer = new wxBoxSizer(wxVERTICAL);
 	accounts_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(250, 850));
-	accounts_panel->SetBackgroundColour(wxColor(18, 33, 38));
+	accounts_panel->SetBackgroundColour(*appSetting->order24);
 
 	window_sizer = new wxBoxSizer(wxVERTICAL);
 
 	backgroundPanel2 = new BackgroundPanel(this, wxSize(350, 500), "Images/darkbg.png", wxBITMAP_TYPE_PNG);
 
 	generateButtons();
-	secondary_controlsizer = new wxBoxSizer(wxVERTICAL);
-	secondary_controlsizer->Add(sign_out, 0, wxALIGN_CENTRE_HORIZONTAL, 0);
-	control_sizer->Add(secondary_controlsizer, 0, wxEXPAND | wxALL, 0);
-	control_sizer->AddStretchSpacer(1);
+
 	control_sizer->Add(info, 0, wxALIGN_TOP | wxEXPAND, 0);
+	control_sizer->AddStretchSpacer(1);
+	control_sizer->Add(sign_out, 0, wxALIGN_TOP | wxEXPAND, 0);
 
 	accounts_sizer->Add(searchBar, 0, wxEXPAND, 0);
 
@@ -76,25 +76,18 @@ MainFrame::MainFrame(const wxString& title, const wxPoint& pos, const wxSize& si
 	searchBar->get_searchSVG()->get_clickablePanel()->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_searchSVG, this);
 	searchBar->get_searchBar()->Bind(wxEVT_TEXT, &MainFrame::onSearchBoxChange, this);
 
-	AccountPanels = AccountPanel::FillFromDB(masterAccount->get_username(), httpCleint, masterAccount->get_key(), accounts_panel, AccountPanels);
+	AccountPanels = AccountPanel::FillFromDB(masterAccount->get_username(), httpCleint, masterAccount->get_key(), accounts_panel, AccountPanels, appSetting);
 	updateUI_signIn();
 }
 
 void MainFrame::generateButtons()
 {
-	/*sign_up = new CustomButton(control_panel, wxSize(70, 70), wxColor(141, 247, 221), "Sign", "Up");
-	sign_in = new CustomButton(control_panel, wxSize(70, 70), wxColor(141, 247, 221), "Sign", "In");
-	sign_out = new CustomButton(control_panel, wxSize(70, 70), wxColor(141, 247, 221), "Sign", "Out");
-	info = new CustomButton(control_panel, wxSize(70, 70), wxColor(141, 247, 221), "More", "Info");*/
-
-	sign_out = new CustomButton(control_panel, wxSize(70, 70), wxColor(141, 247, 221), "Sign", "Out");
-	info = new CustomButton(control_panel, wxSize(70, 30), *appSetting->order6, appSetting->selected_language[AppSetting::TextKeys::MoreInfo], true, labelFont, *appSetting->order3, false);
+	sign_out = new CustomButton(control_panel, wxSize(70, 30), control_panel->GetBackgroundColour(), control_panel->GetBackgroundColour(), appSetting->selected_language[AppSetting::TextKeys::SignOut], false, textFont, *appSetting->order3, false);
+	info = new CustomButton(control_panel, wxSize(70, 30), control_panel->GetBackgroundColour(), control_panel->GetBackgroundColour(), appSetting->selected_language[AppSetting::TextKeys::MoreInfo], false, textFont, *appSetting->order3, false);
 
 	searchBar = new SearchBar(accounts_panel, wxSize(250, 30));
 
-	//backgroundPanel = new BackgroundPanel(backgroundPanel2, wxSize(300, 400), "Images/theme2.png", wxBITMAP_TYPE_PNG);
-	//add_new_account = new CustomButton(backgroundPanel2, wxSize(200, 40), wxColor(141, 247, 221), "+ Add New Account");
-	add_new_account = new CustomButton(backgroundPanel2, wxSize(100, 30), *appSetting->order6, appSetting->selected_language[AppSetting::TextKeys::AddNewAccount], true, labelFont, *appSetting->order3, false);
+	add_new_account = new CustomButton(backgroundPanel2, wxSize(100, 30), *appSetting->order6, *appSetting->order61, appSetting->selected_language[AppSetting::TextKeys::AddNewAccount], true, textFont, *appSetting->order3, false);
 }
 void MainFrame::resetWindow()
 {
@@ -122,46 +115,6 @@ void MainFrame::resetWindow()
 	}
 }
 
-//void MainFrame::Button_signIn(wxMouseEvent& event)
-//{
-//	SignInDialog* signInDialog = new SignInDialog(this, wxID_ANY, "Sign In");
-//	if (signInDialog->ShowModal() == wxID_OK)
-//	{
-//		if (masterAccount->Login(signInDialog->getUsername(), signInDialog->getPassword()))
-//		{
-//			AccountPanels = AccountPanel::ReadFromFile(
-//				masterAccount->get_id(),
-//				masterAccount->get_password(),
-//				accounts_panel,
-//				AccountPanels
-//			);
-//			add_new_account->getClickablePanel()->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_addNewAccount, this);
-//			searchBar->reset();
-//			searchBar->get_barSVG()->get_clickablePanel()->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_barSVG, this);
-//			searchBar->get_searchSVG()->get_clickablePanel()->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_searchSVG, this);
-//			searchBar->get_searchBar()->Bind(wxEVT_TEXT, &MainFrame::onSearchBoxChange, this);
-//			updateUI_signIn();
-//		}
-//	}
-//	signInDialog->Destroy();
-//}
-//void MainFrame::Button_signUp(wxMouseEvent& event)
-//{
-//	NewAccountDialog* newAccountDialog = new NewAccountDialog(this, wxID_ANY, "Sign Up a New Account");
-//	if (newAccountDialog->ShowModal() == wxID_OK)
-//	{
-//		if (masterAccount->CreateNewMasterAccount(newAccountDialog->getUsername(), newAccountDialog->getPassword()))
-//		{
-//			updateUI_signUp();
-//			add_new_account->getClickablePanel()->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_addNewAccount, this);
-//			searchBar->reset();
-//			searchBar->get_barSVG()->get_clickablePanel()->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_barSVG, this);
-//			searchBar->get_searchSVG()->get_clickablePanel()->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_searchSVG, this);
-//			searchBar->get_searchBar()->Bind(wxEVT_TEXT, &MainFrame::onSearchBoxChange, this);
-//		}
-//	}
-//	newAccountDialog->Destroy();
-//}
 void MainFrame::Button_signOut(wxMouseEvent& event)
 {
 	masterAccount->SignOut();
@@ -174,13 +127,12 @@ void MainFrame::Button_signOut(wxMouseEvent& event)
 }
 void MainFrame::Button_moreInfo(wxMouseEvent& event)
 {
-	MoreInfoDialog* moreInfoDialog = new MoreInfoDialog(this);
+	MoreInfoDialog* moreInfoDialog = new MoreInfoDialog(this, appSetting);
 	if (moreInfoDialog->ShowModal() == wxID_OK)
 	{
 		moreInfoDialog->Destroy();
 	}
 }
-
 void MainFrame::Button_addNewAccount(wxMouseEvent& event)
 {
 	updateUI_addNewAccount();
@@ -203,7 +155,7 @@ void MainFrame::Button_MainAddAccount_Confirm(wxMouseEvent& event)
 		masterAccount->get_key()
 	);
 	newAccount->AddToDB(httpCleint);//
-	AccountPanels.push_back(new AccountPanel(accounts_panel, wxID_ANY, wxDefaultPosition, wxSize(250, 50), AccountPanels.size(), AccountPanels, newAccount));
+	AccountPanels.push_back(new AccountPanel(accounts_panel, wxID_ANY, wxDefaultPosition, wxSize(250, 50), AccountPanels.size(), AccountPanels, newAccount, appSetting));
 	AccountPanels[AccountPanels.size() - 1]->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_AccountPanel, this);
 	AccountPanels[AccountPanels.size() - 1]->get_clickable_platformBitmap()->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_AccountPanel2, this);
 	AccountPanels[AccountPanels.size() - 1]->get_clickable_identifierBitmap()->Bind(wxEVT_LEFT_DOWN, &MainFrame::Button_AccountPanel2, this);
@@ -311,19 +263,26 @@ void MainFrame::onSearchBoxChange(wxCommandEvent& event)
 		accounts_sizer->ShowItems(true);
 		Layout();
 	}
+	else
+	{
+		for (int i = 0; i < AccountPanels.size(); i++)
+		{
+			if (
+				(AccountPanels[i]->get_account()->get_platform().Contains(searchBar->get_searchBar()->GetValue())) ||
+				(AccountPanels[i]->get_account()->get_identifier().Contains(searchBar->get_searchBar()->GetValue())))
+			{
+				accounts_sizer->Show(AccountPanels[i], true);
+				Layout();
+			}
+			else
+			{
+				accounts_sizer->Show(AccountPanels[i], false);
+				Layout();
+			}
+		}
+	}
 }
 
-//void MainFrame::updateUI_signUp()
-//{
-//	secondary_controlsizer->Show(sign_up, false);
-//	secondary_controlsizer->Show(sign_in, false);
-//	secondary_controlsizer->Show(sign_out, true);
-//	if (control_panel->IsShown())
-//	{
-//		control_panel->Hide();
-//	}
-//	Layout();
-//}
 void MainFrame::updateUI_signIn()
 {
 	for (int i = 0; i < AccountPanels.size(); i++)
@@ -335,28 +294,6 @@ void MainFrame::updateUI_signIn()
 	}
 	Layout();
 }
-//void MainFrame::updateUI_signOut()
-//{
-//	secondary_controlsizer->Show(sign_up, true);
-//	secondary_controlsizer->Show(sign_in, true);
-//	secondary_controlsizer->Show(sign_out, false);
-//	for (int i = 0; i < AccountPanels.size(); i++)
-//	{
-//		accounts_sizer->Detach(AccountPanels[i]);
-//		delete AccountPanels[i];
-//	}
-//	AccountPanels.resize(0);
-//	resetWindow();
-//	//backgroundPanel->Show();
-//	window_sizer->AddStretchSpacer(1);
-//	window_sizer->Add(add_new_account, 0, wxEXPAND, 0);
-//	add_new_account->Show();
-//	if (!control_panel->IsShown())
-//	{
-//		control_panel->Show();
-//	}
-//	Layout();
-//}
 void MainFrame::updateUI_addNewAccount()
 {
 	resetWindow();
@@ -438,4 +375,14 @@ void MainFrame::updateUI_AccountPanel(AccountPanel* account_panel)
 MainFrame::~MainFrame()
 {
 	//delete masterAccount;
+}
+
+CustomButton* MainFrame::get_signOut_button()
+{
+	return sign_out;
+}
+
+CustomButton* MainFrame::get_language_button()
+{
+	return bLanguage;
 }

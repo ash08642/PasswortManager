@@ -13,12 +13,11 @@ private:
 	std::string salt;
 	unsigned char Key[32];
 	unsigned char IV[16];
-	std::string master_pass;
-public:
+	std::string masterKey;
 
-	Password();
-	Password(wxString plaintext, wxString masterpass);
-	Password(wxString masterpass, wxString ciphertext, wxString _salt);
+public:
+	Password(wxString plaintext, wxString master_key);
+	Password(wxString master_key, wxString ciphertext, wxString _salt);
 	~Password();
 
 	std::string get_plain_text();

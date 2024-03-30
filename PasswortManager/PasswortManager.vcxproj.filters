@@ -31,9 +31,6 @@
     <ClCompile Include="MasterAccount.cpp">
       <Filter>Models</Filter>
     </ClCompile>
-    <ClCompile Include="Team.cpp">
-      <Filter>Models</Filter>
-    </ClCompile>
     <ClCompile Include="Crypto.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
@@ -94,18 +91,9 @@
     <ClCompile Include="MoreInfoDialog.cpp">
       <Filter>Views</Filter>
     </ClCompile>
-    <ClCompile Include="SignInDialog.cpp">
-      <Filter>Views</Filter>
-    </ClCompile>
-    <ClCompile Include="NewAccountDialog.cpp">
-      <Filter>Views</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MasterAccount.h">
-      <Filter>Models</Filter>
-    </ClInclude>
-    <ClInclude Include="Team.h">
       <Filter>Models</Filter>
     </ClInclude>
     <ClInclude Include="Crypto.h">
@@ -166,12 +154,6 @@
       <Filter>Views</Filter>
     </ClInclude>
     <ClInclude Include="MoreInfoDialog.h">
-      <Filter>Views</Filter>
-    </ClInclude>
-    <ClInclude Include="SignInDialog.h">
-      <Filter>Views</Filter>
-    </ClInclude>
-    <ClInclude Include="NewAccountDialog.h">
       <Filter>Views</Filter>
     </ClInclude>
   </ItemGroup>

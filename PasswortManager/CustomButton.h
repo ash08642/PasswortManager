@@ -10,9 +10,12 @@ private:
     wxStaticText* label;
     bool hoverable;
     bool isLabelHoverable;
+
+    wxColor primaryColor;
+    wxColor secondaryColor;
 public:
-    CustomButton(wxWindow* parent, wxSize size, wxColor color, wxString text, bool hoverable, wxFont font, wxColor fontColor, bool labelHoverable);
-    CustomButton(wxWindow* parent, wxSize size, wxColor color, wxString text, wxString text2);
+    CustomButton(wxWindow* parent, wxSize size, wxColor primary_color, wxColor secondary_color, wxString text, bool hoverable, wxFont font, wxColor fontColor, bool labelHoverable);
+    CustomButton(wxWindow* parent, wxSize size, wxColor primary_color, wxColor secondary_color, wxString text, wxString text2);
 
     wxStaticText* getClickablePanel();
 

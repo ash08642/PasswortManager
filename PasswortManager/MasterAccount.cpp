@@ -22,7 +22,7 @@ void MasterAccount::Sign_InUp(wxString id, wxString pass)
 	username = id;
 	password = pass;
 	key = Crypto::Hash2_SHA256(password.ToStdString(), 20000, username.ToStdString());
-	auth_key = Crypto::Hash2_SHA256(password.ToStdString(), 10000, username.ToStdString());
+	auth_key = Crypto::Hash2_SHA256(key, 10000, password.ToStdString());
 }
 void MasterAccount::SignOut()
 {

@@ -9,8 +9,6 @@
 #include "MainAddEditAccount.h"
 #include "MainViewAccount.h"
 #include "CustomButton.h"
-#include "NewAccountDialog.h"
-#include "SignInDialog.h"
 #include "MoreInfoDialog.h"
 #include "SearchBar.h"
 #include "BackgroundPanel.h"
@@ -23,6 +21,9 @@ class MainFrame : public wxFrame
 public:
 	MainFrame(const wxString& title, const wxPoint& pos, const wxSize& size, AppSetting* app_Setting, HttpClient* http_cleint, MasterAccount* master_account);
 	~MainFrame();
+
+	CustomButton* get_signOut_button();
+	CustomButton* get_language_button();
 
 private:
 
@@ -38,6 +39,7 @@ private:
 	BackgroundPanel* backgroundPanel2;
 
 	CustomButton* sign_out;
+	CustomButton* bLanguage;
 	CustomButton* info;
 
 	SearchBar* searchBar;
@@ -49,10 +51,10 @@ private:
 
 	wxSizer* main_sizer;
 	wxSizer* accounts_sizer;
-	wxSizer* secondary_controlsizer;
 	wxSizer* window_sizer;
 
 	wxFont labelFont;
+	wxFont textFont;
 
 	void generateButtons();
 	void resetWindow();

@@ -1,9 +1,12 @@
 #include "TextBox.h"
 
-TextBox::TextBox(wxWindow* parent, wxString text, wxSize size, long style, wxColor borderColor, wxColor background, wxColor foreground, wxFont font)
+TextBox::TextBox(wxWindow* parent, wxString text, wxSize size, long style, wxColor primary_borderColor, wxColor secondary_borderColor, wxColor background, wxColor foreground, wxFont font)
 	: wxWindow(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize)
 {
-	this->SetBackgroundColour(borderColor);
+	primaryBorderColor = primary_borderColor;
+	secondaryBorderColor = secondary_borderColor;
+	this->SetBackgroundColour(primaryBorderColor);
+
 	textCtrl = new wxTextCtrl(this, wxID_ANY, text, wxDefaultPosition, wxSize(size.GetWidth() - 4, size.GetHeight() - 4), wxNO_BORDER | wxTE_RICH | wxTE_RICH2 | wxTE_NOHIDESEL | style);
 	textCtrl->SetFont(font);
 	textCtrl->SetBackgroundColour(background);
@@ -25,22 +28,14 @@ wxTextCtrl* TextBox::get_textCtrl()
 void TextBox::OnEnterPanel(wxEvent& event)
 {
 	//wxMessageBox("Focused");
-	this->SetBackgroundColour(wxColor(
-		this->GetBackgroundColour().GetRed() * 1.80,
-		this->GetBackgroundColour().GetBlue() * 1.80,
-		this->GetBackgroundColour().GetGreen() * 1.80
-	));
+	this->SetBackgroundColour(secondaryBorderColor);
 	Refresh();
 	event.Skip();
 }
 void TextBox::OnLeavePanel(wxEvent& event)
 {
 	//wxMessageBox("Lost Focus");
-	this->SetBackgroundColour(wxColor(
-		this->GetBackgroundColour().GetRed() / 1.80,
-		this->GetBackgroundColour().GetBlue() / 1.80,
-		this->GetBackgroundColour().GetGreen() / 1.80
-	));
+	this->SetBackgroundColour(primaryBorderColor);
 	Refresh();
 	event.Skip();
 }

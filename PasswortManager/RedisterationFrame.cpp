@@ -32,15 +32,7 @@ RedisterationFrame::RedisterationFrame(const wxString& title, const wxPoint& pos
 	{
 		wxMessageBox("Dosis-Light Failed to load");
 	}
-	//this->SetBackgroundColour(wxColor(40, 40, 40));
-	/*if (!wxFont::AddPrivateFont("Fonts/Dosis-Bold.ttf"))
-	{
-		wxMessageBox("Dosis-Bold Failed to load");
-	}
-	if (!wxFont::AddPrivateFont("Fonts/Dosis-Light.ttf"))
-	{
-		wxMessageBox("Dosis-Light Failed to load");
-	}*/
+	
 	sizer = new wxBoxSizer(wxVERTICAL);
 	signUpPanel = new SignUpPanel(this, wxID_ANY, wxDefaultPosition, wxSize(500, 400), appSetting);
 	signInPanel = new SignInPanel(this, wxID_ANY, wxDefaultPosition, wxSize(500, 400), appSetting);
@@ -92,6 +84,11 @@ bool RedisterationFrame::validate_signUpData()
 	}
 	if (signUpPanel->get_pass() == signUpPanel->get_confirmPass())
 	{
+		if (!signUpPanel->isPasswordStrong())
+		{
+			wxMessageBox(appSetting->selected_language2[AppSetting::TextKeys::PassIsWeak]);
+			return false;
+		}
 		masterAccount->Sign_InUp(signUpPanel->get_identtity(), signUpPanel->get_pass());
 
 		std::vector<std::string> keys = { "identity", "password" };

@@ -37,6 +37,7 @@ private:
 
 	CustomButton* Confirm;
 	CustomButton* Cancel;
+	CustomButton* GeneratePasssword;
 
 	AccountPanel* accountPanel;
 
@@ -49,5 +50,7 @@ private:
 
 	void showPassword(wxMouseEvent& event);
 	void hidePassword(wxMouseEvent& event);
+
+	void generateRandomPassword(wxMouseEvent& event);	//generiert ein sicheres Zufallspasswort
 };
 

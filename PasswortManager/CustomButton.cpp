@@ -1,11 +1,14 @@
 #include "CustomButton.h"
 
-CustomButton::CustomButton(wxWindow* parent, wxSize size, wxColor color, wxString text, bool hoverable, wxFont font, wxColor fontColor, bool labelHoverable) :
+CustomButton::CustomButton(wxWindow* parent, wxSize size, wxColor primary_color, wxColor secondary_color, wxString text, bool hoverable, wxFont font, wxColor fontColor, bool labelHoverable) :
 	wxWindow(parent, wxID_ANY, wxDefaultPosition, size)
 {
 	this->hoverable = hoverable;
 	isLabelHoverable = labelHoverable;
-	SetBackgroundColour(color);
+
+	primaryColor = primary_color;
+	secondaryColor = secondary_color;
+	SetBackgroundColour(primaryColor);
 
 	label = new wxStaticText(this, wxID_ANY, text);
 	label->SetFont(font);
@@ -20,10 +23,12 @@ CustomButton::CustomButton(wxWindow* parent, wxSize size, wxColor color, wxStrin
 
 }
 
-CustomButton::CustomButton(wxWindow* parent, wxSize size, wxColor color, wxString text, wxString text2) :
+CustomButton::CustomButton(wxWindow* parent, wxSize size, wxColor primary_color, wxColor secondary_color, wxString text, wxString text2) :
 	wxWindow(parent, wxID_ANY, wxDefaultPosition, size)
 {
--	SetBackgroundColour(color);
+primaryColor = primary_color;
+secondaryColor = secondary_color;
+SetBackgroundColour(primaryColor);
 }
 
 wxStaticText* CustomButton::getClickablePanel()
@@ -34,11 +39,7 @@ wxStaticText* CustomButton::getClickablePanel()
 void CustomButton::OnEnterPanel(wxMouseEvent& event) {
 	if (hoverable)
 	{
-		this->SetBackgroundColour(wxColor(
-			this->GetBackgroundColour().GetRed() * 1.80,
-			this->GetBackgroundColour().GetBlue() * 1.80,
-			this->GetBackgroundColour().GetGreen() * 1.80
-		));
+		this->SetBackgroundColour(secondaryColor);
 	}
 
 	if (isLabelHoverable)
@@ -55,11 +56,7 @@ void CustomButton::OnEnterPanel(wxMouseEvent& event) {
 void CustomButton::OnLeavePanel(wxMouseEvent& event) {
 	if (hoverable)
 	{
-		this->SetBackgroundColour(wxColor(
-			this->GetBackgroundColour().GetRed() / 1.80,
-			this->GetBackgroundColour().GetBlue() / 1.80,
-			this->GetBackgroundColour().GetGreen() / 1.80
-		));
+		this->SetBackgroundColour(primaryColor);
 	}
 	
 	if (isLabelHoverable)

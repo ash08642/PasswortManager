@@ -22,6 +22,7 @@ public:
 	wxString get_confirmPass();
 
 	void clear_fields();
+	bool isPasswordStrong();	//prüft, ob das eingegebene Passwort den Anforderungen entspricht.
 
 private:
 	TextBox* identityBox = nullptr;

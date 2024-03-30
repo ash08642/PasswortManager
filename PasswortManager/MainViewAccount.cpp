@@ -3,34 +3,33 @@
 MainViewAccount::MainViewAccount(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, AccountPanel* account_panel, AppSetting* app_Setting)
 	:wxWindow(parent, id, pos, size), accountPanel{ account_panel }
 {
-	this->SetBackgroundColour(wxColor(20, 37, 43));
-
 	appSetting = app_Setting;
+	this->SetBackgroundColour(*appSetting->order21);
 
 	wxFont labelFont(wxFontInfo(14).FaceName("Dosis").Bold());
 	labelFont.SetUnderlined(true);
-	wxFont textFont(wxFontInfo(13).FaceName("Dosis Light").Bold());
+	wxFont textFont(wxFontInfo(13).FaceName("Dosis-Light"));
 
 	wxStaticText* platformLabel = new wxStaticText(this, wxID_ANY, "Platform / URL: ");
 	platformLabel->SetFont(labelFont);
-	platformLabel->SetForegroundColour(wxColor(141, 219, 247));
+	platformLabel->SetForegroundColour(wxColor(0, 0, 0));
 	wxStaticText* platform = new wxStaticText(this, wxID_ANY, accountPanel->get_account()->get_platform());
 	platform->SetFont(textFont);
-	platform->SetForegroundColour(wxColor(141, 219, 247));
+	platform->SetForegroundColour(wxColor(0, 0, 0));
 
 	wxStaticText* identityLabel = new wxStaticText(this, wxID_ANY, "Identifier: ");
 	identityLabel->SetFont(labelFont);
-	identityLabel->SetForegroundColour(wxColor(141, 219, 247));
+	identityLabel->SetForegroundColour(wxColor(0, 0, 0));
 	wxStaticText* identity = new wxStaticText(this, wxID_ANY, accountPanel->get_account()->get_identifier());
 	identity->SetFont(textFont);
-	identity->SetForegroundColour(wxColor(141, 219, 247));
+	identity->SetForegroundColour(wxColor(0, 0, 0));
 
 	wxStaticText* passwordLabel = new wxStaticText(this, wxID_ANY, "Password: ");
 	passwordLabel->SetFont(labelFont);
-	passwordLabel->SetForegroundColour(wxColor(141, 219, 247));
+	passwordLabel->SetForegroundColour(wxColor(0, 0, 0));
 	wxStaticText* password = new wxStaticText(this, wxID_ANY, accountPanel->get_account()->get_password());
 	password->SetFont(textFont);
-	password->SetForegroundColour(wxColor(141, 219, 247));
+	password->SetForegroundColour(wxColor(0, 0, 0));
 
 	wxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
 	mainSizer->Add(platformLabel, 0, wxLEFT | wxTOP, 20);
@@ -44,10 +43,10 @@ MainViewAccount::MainViewAccount(wxWindow* parent, wxWindowID id, const wxPoint&
 	{
 		wxStaticText* createdAtLabel = new wxStaticText(this, wxID_ANY, "Created At: ");
 		createdAtLabel->SetFont(labelFont);
-		createdAtLabel->SetForegroundColour(wxColor(141, 219, 247));
+		createdAtLabel->SetForegroundColour(wxColor(0, 0, 0));
 		wxStaticText* createdAt = new wxStaticText(this, wxID_ANY, accountPanel->get_account()->get_createdAt());
 		createdAt->SetFont(textFont);
-		createdAt->SetForegroundColour(wxColor(141, 219, 247));
+		createdAt->SetForegroundColour(wxColor(0, 0, 0));
 
 		mainSizer->Add(createdAtLabel, 0, wxLEFT, 20);
 		mainSizer->Add(createdAt, 0, wxLEFT, 25);
@@ -56,10 +55,10 @@ MainViewAccount::MainViewAccount(wxWindow* parent, wxWindowID id, const wxPoint&
 	{
 		wxStaticText* createdAtLabel = new wxStaticText(this, wxID_ANY, "Created At: ");
 		createdAtLabel->SetFont(labelFont);
-		createdAtLabel->SetForegroundColour(wxColor(141, 219, 247));
+		createdAtLabel->SetForegroundColour(wxColor(0, 0, 0));
 		wxStaticText* createdAt = new wxStaticText(this, wxID_ANY, accountPanel->get_account()->get_createdAt());
 		createdAt->SetFont(textFont);
-		createdAt->SetForegroundColour(wxColor(141, 219, 247));
+		createdAt->SetForegroundColour(wxColor(0, 0, 0));
 
 		wxSizer* createdSizer = new wxBoxSizer(wxVERTICAL);
 		createdSizer->Add(createdAtLabel, 0);
@@ -67,10 +66,10 @@ MainViewAccount::MainViewAccount(wxWindow* parent, wxWindowID id, const wxPoint&
 
 		wxStaticText* updatedAtLabel = new wxStaticText(this, wxID_ANY, "Updated At: ");
 		updatedAtLabel->SetFont(labelFont);
-		updatedAtLabel->SetForegroundColour(wxColor(141, 219, 247));
+		updatedAtLabel->SetForegroundColour(wxColor(0, 0, 0));
 		wxStaticText* updatedAt = new wxStaticText(this, wxID_ANY, accountPanel->get_account()->get_updated_At());
 		updatedAt->SetFont(textFont);
-		updatedAt->SetForegroundColour(wxColor(141, 219, 247));
+		updatedAt->SetForegroundColour(wxColor(0, 0, 0));
 
 		wxSizer* updatedSizer = new wxBoxSizer(wxVERTICAL);
 		updatedSizer->Add(updatedAtLabel, 0);
@@ -83,9 +82,9 @@ MainViewAccount::MainViewAccount(wxWindow* parent, wxWindowID id, const wxPoint&
 	}
 
 	//Edit = new CustomButton(this, wxSize(90, 30), wxColor(141, 247, 221), "Edit");
-	Edit = new CustomButton(this, wxSize(100, 30), *appSetting->order6, appSetting->selected_language[AppSetting::TextKeys::Edit], true, labelFont, *appSetting->order3, false);
+	Edit = new CustomButton(this, wxSize(100, 30), *appSetting->order6, *appSetting->order61, appSetting->selected_language[AppSetting::TextKeys::Edit], true, textFont, *appSetting->order3, false);
 	//Delete = new CustomButton(this, wxSize(90, 30), wxColor(189, 102, 91), "Delete");
-	Delete = new CustomButton(this, wxSize(100, 30), *appSetting->order6, appSetting->selected_language[AppSetting::TextKeys::Delete], true, labelFont, *appSetting->order3, false);
+	Delete = new CustomButton(this, wxSize(100, 30), *appSetting->order6, *appSetting->order61, appSetting->selected_language[AppSetting::TextKeys::Delete], true, textFont, *appSetting->order3, false);
 
 	wxSizer* buttonSizer = new wxBoxSizer(wxHORIZONTAL);
 	buttonSizer->Add(Edit, 2, wxALIGN_CENTRE);

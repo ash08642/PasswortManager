@@ -20,5 +20,6 @@ private:
 
 	void display_Mainframe_signIn(wxMouseEvent& event);
 	void display_Mainframe_signUp(wxMouseEvent& event);
+	void display_Registeration_signOut(wxMouseEvent& event);
 };
 

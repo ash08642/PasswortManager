@@ -149,16 +149,13 @@
     <ClCompile Include="MainViewAccount.cpp" />
     <ClCompile Include="MasterAccount.cpp" />
     <ClCompile Include="MoreInfoDialog.cpp" />
-    <ClCompile Include="NewAccountDialog.cpp" />
     <ClCompile Include="PasswordManagerApp.cpp" />
     <ClCompile Include="Password.cpp" />
     <ClCompile Include="RedisterationFrame.cpp" />
     <ClCompile Include="SearchBar.cpp" />
-    <ClCompile Include="SignInDialog.cpp" />
     <ClCompile Include="SignUpPanel.cpp" />
     <ClCompile Include="SignInPanel.cpp" />
     <ClCompile Include="SVGPanel.cpp" />
-    <ClCompile Include="Team.cpp" />
     <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="wxImagePanel.cpp" />
   </ItemGroup>
@@ -175,16 +172,13 @@
     <ClInclude Include="MainViewAccount.h" />
     <ClInclude Include="MasterAccount.h" />
     <ClInclude Include="MoreInfoDialog.h" />
-    <ClInclude Include="NewAccountDialog.h" />
     <ClInclude Include="PasswordManagerApp.h" />
     <ClInclude Include="Password.h" />
     <ClInclude Include="RedisterationFrame.h" />
     <ClInclude Include="SearchBar.h" />
-    <ClInclude Include="SignInDialog.h" />
     <ClInclude Include="SignUpPanel.h" />
     <ClInclude Include="SignInPanel.h" />
     <ClInclude Include="SVGPanel.h" />
-    <ClInclude Include="Team.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="wxImagePanel.h" />
   </ItemGroup>

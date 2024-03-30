@@ -20,10 +20,12 @@ std::vector<wxString> DevideString5(std::string line, std::string delimiter)
 	return result;
 }
 
-AccountPanel::AccountPanel(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, int i, std::vector<AccountPanel*>& cont, Account* konto) : wxWindow(parent, id, pos, size), index{ i }, container{ cont }, account{ konto }
+AccountPanel::AccountPanel(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, int i, std::vector<AccountPanel*>& cont, Account* konto, AppSetting* app_setting) : wxWindow(parent, id, pos, size), index{ i }, container{ cont }, account{ konto }
 {
+	appSetting = app_setting;
+
 	this->SetBackgroundStyle(wxBG_STYLE_PAINT);
-	this->SetBackgroundColour(wxColor(73, 120, 120));
+	this->SetBackgroundColour(*appSetting->order21);
 	isSelected = false;
 
 	wxString platformString(R"(<svg viewBox="0 0 20 20" fill="#000000" class="w-5 h-5"><path d="M16.555 5.412a8.028 8.028 0 0 0-3.503-2.81 14.899 14.899 0 0 1 1.663 4.472 8.547 8.547 0 0 0 1.84-1.662ZM13.326 7.825a13.43 13.43 0 0 0-2.413-5.773 8.087 8.087 0 0 0-1.826 0 13.43 13.43 0 0 0-2.413 5.773A8.473 8.473 0 0 0 10 8.5c1.18 0 2.304-.24 3.326-.675ZM6.514 9.376A9.98 9.98 0 0 0 10 10c1.226 0 2.4-.22 3.486-.624a13.54 13.54 0 0 1-.351 3.759A13.54 13.54 0 0 1 10 13.5c-1.079 0-2.128-.127-3.134-.366a13.538 13.538 0 0 1-.352-3.758ZM5.285 7.074a14.9 14.9 0 0 1 1.663-4.471 8.028 8.028 0 0 0-3.503 2.81c.529.638 1.149 1.199 1.84 1.66ZM17.334 6.798a7.973 7.973 0 0 1 .614 4.115 13.47 13.47 0 0 1-3.178 1.72 15.093 15.093 0 0 0 .174-3.939 10.043 10.043 0 0 0 2.39-1.896ZM2.666 6.798a10.042 10.042 0 0 0 2.39 1.896 15.196 15.196 0 0 0 .174 3.94 13.472 13.472 0 0 1-3.178-1.72 7.973 7.973 0 0 1 .615-4.115ZM10 15c.898 0 1.778-.079 2.633-.23a13.473 13.473 0 0 1-1.72 3.178 8.099 8.099 0 0 1-1.826 0 13.47 13.47 0 0 1-1.72-3.178c.855.151 1.735.23 2.633.23ZM14.357 14.357a14.912 14.912 0 0 1-1.305 3.04 8.027 8.027 0 0 0 4.345-4.345c-.953.542-1.971.981-3.04 1.305ZM6.948 17.397a8.027 8.027 0 0 1-4.345-4.345c.953.542 1.971.981 3.04 1.305a14.912 14.912 0 0 0 1.305 3.04Z" /></svg>)");
@@ -65,7 +67,7 @@ void AccountPanel::OnPaint(wxPaintEvent& evt)
 		//gc->DrawRectangle(rectOrigin.x, rectOrigin.y, rectSize.GetWidth(), rectSize.GetHeight());
 
 		wxFont platformTextFont(wxFontInfo(13).FaceName("Dosis"));
-		gc->SetFont(platformTextFont, *wxWHITE);
+		gc->SetFont(platformTextFont, *wxBLACK);
 		wxString platformText = account->get_platform();
 		double platformTextWidth, platformTextHeigth;
 		gc->GetTextExtent(platformText, &platformTextWidth, &platformTextHeigth);
@@ -76,7 +78,7 @@ void AccountPanel::OnPaint(wxPaintEvent& evt)
 		);
 
 		wxFont identifierTextFont(wxFontInfo(12).FaceName("Dosis"));
-		gc->SetFont(identifierTextFont, *wxWHITE);
+		gc->SetFont(identifierTextFont, *wxBLACK);
 		wxString identifierText = account->get_identifier();
 		double identifierTextWidth, identifierTextHeigth;
 		gc->GetTextExtent(identifierText, &identifierTextWidth, &identifierTextHeigth);
@@ -103,9 +105,9 @@ void AccountPanel::OnMouseDown()
 {
 	if (!isSelected)
 	{
-		this->SetOwnBackgroundColour(wxColor(108, 171, 171));
-		identifierSVG->SetOwnBackgroundColour(wxColor(108, 171, 171));
-		platformSVG->SetOwnBackgroundColour(wxColor(108, 171, 171));
+		this->SetOwnBackgroundColour(*appSetting->order1);
+		identifierSVG->SetOwnBackgroundColour(*appSetting->order1);
+		platformSVG->SetOwnBackgroundColour(*appSetting->order1);
 		isSelected = true;
 		for (int i = 0; i < container.size(); i++)
 		{
@@ -128,9 +130,9 @@ void AccountPanel::OnMouseDown()
 void AccountPanel::OnEnterPanel(wxMouseEvent& event) {
 	if (!isSelected)
 	{
-		this->SetBackgroundColour(wxColor(93, 150, 150));
-		platformSVG->SetBackgroundColour(wxColor(93, 150, 150));
-		identifierSVG->SetBackgroundColour(wxColor(93, 150, 150));
+		this->SetBackgroundColour(*appSetting->order1);
+		platformSVG->SetBackgroundColour(*appSetting->order1);
+		identifierSVG->SetBackgroundColour(*appSetting->order1);
 		Refresh();
 	}
 }
@@ -138,9 +140,9 @@ void AccountPanel::OnEnterPanel(wxMouseEvent& event) {
 void AccountPanel::OnLeavePanel(wxMouseEvent& event) {
 	if (!isSelected)
 	{
-		this->SetBackgroundColour(wxColor(73, 120, 120));
-		platformSVG->SetBackgroundColour(wxColor(73, 120, 120));
-		identifierSVG->SetBackgroundColour(wxColor(73, 120, 120));
+		this->SetBackgroundColour(*appSetting->order21);
+		platformSVG->SetBackgroundColour(*appSetting->order21);
+		identifierSVG->SetBackgroundColour(*appSetting->order21);
 		Refresh();
 	}
 }
@@ -148,9 +150,9 @@ void AccountPanel::OnLeavePanel(wxMouseEvent& event) {
 void AccountPanel::reset()
 {
 	isSelected = false;
-	this->SetBackgroundColour(wxColor(73, 120, 120));
-	platformSVG->SetBackgroundColour(wxColor(73, 120, 120));
-	identifierSVG->SetBackgroundColour(wxColor(73, 120, 120));
+	this->SetBackgroundColour(*appSetting->order21);
+	platformSVG->SetBackgroundColour(*appSetting->order21);
+	identifierSVG->SetBackgroundColour(*appSetting->order21);
 	Refresh();
 }
 
@@ -191,7 +193,7 @@ void AccountPanel::update_account(wxString neu_platform, wxString neu_identifier
 	}
 }
 
-std::vector<AccountPanel*> AccountPanel::FillFromDB(wxString master_userName, HttpClient* httpCleint, wxString master_key, wxWindow* parent, std::vector<AccountPanel*>& account_panels)
+std::vector<AccountPanel*> AccountPanel::FillFromDB(wxString master_userName, HttpClient* httpCleint, wxString master_key, wxWindow* parent, std::vector<AccountPanel*>& account_panels, AppSetting* app_setting)
 {
 	std::vector<std::string> keys{ "master_account_identity" };
 	std::vector<std::string> values{ master_userName.ToStdString()};
@@ -202,7 +204,7 @@ std::vector<AccountPanel*> AccountPanel::FillFromDB(wxString master_userName, Ht
 	{
 		std::vector<wxString> col = DevideString5(spal[i].ToStdString(), ";col;");
 		Account* account = new Account(std::stoi(col[0].ToStdString()), master_userName, col[2], col[3], col[5], col[6], col[4], col[7], master_key);
-		result.push_back(new AccountPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(250, 50), i, account_panels, account));
+		result.push_back(new AccountPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(250, 50), i, account_panels, account, app_setting));
 	}
 
 	return result;

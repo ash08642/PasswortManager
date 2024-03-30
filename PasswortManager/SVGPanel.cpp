@@ -1,9 +1,12 @@
 #include "SVGPanel.h"
 
-SVGPanel::SVGPanel(wxWindow* parent, wxSize size, wxString svg, wxColor color, bool hoverable)
+SVGPanel::SVGPanel(wxWindow* parent, wxSize size, wxString svg, wxColor primary_color, wxColor secondary_color, bool hoverable)
     : wxWindow(parent, wxID_ANY, wxDefaultPosition, size)
 {
-    SetBackgroundColour(color);
+    primaryColor = primary_color;
+    secondaryColor = secondary_color;
+
+    SetBackgroundColour(primaryColor);
     wxBitmapBundle bundle = wxBitmapBundle::FromSVG(svg.mb_str(), size);
     if (!bundle.IsOk()) wxMessageBox("BUNDLE NOT OK");
     pic = new wxStaticBitmap(this, wxID_ANY, bundle);
@@ -18,20 +21,12 @@ SVGPanel::SVGPanel(wxWindow* parent, wxSize size, wxString svg, wxColor color, b
     }
 }
 void SVGPanel::OnEnterPanel(wxMouseEvent& event) {
-    this->SetBackgroundColour(wxColor(
-        this->GetBackgroundColour().GetRed() * 1.80,
-        this->GetBackgroundColour().GetBlue() * 1.80,
-        this->GetBackgroundColour().GetGreen() * 1.80
-    ));
+    this->SetBackgroundColour(secondaryColor);
     Refresh();
 }
 
 void SVGPanel::OnLeavePanel(wxMouseEvent& event) {
-    this->SetBackgroundColour(wxColor(
-        this->GetBackgroundColour().GetRed() / 1.80,
-        this->GetBackgroundColour().GetBlue() / 1.80,
-        this->GetBackgroundColour().GetGreen() / 1.80
-    ));
+    this->SetBackgroundColour(primaryColor);
     Refresh();
 }
 

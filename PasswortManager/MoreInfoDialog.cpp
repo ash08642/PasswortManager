@@ -10,7 +10,7 @@ MoreInfoDialog::MoreInfoDialog(wxWindow* parent, AppSetting* app_setting) : wxDi
 	text->SetFont(labelFont);
 	text->SetForegroundColour(wxColor(0, 0, 0));
 
-	wxHyperlinkCtrl* github = new wxHyperlinkCtrl(this, wxID_ANY, "Github", "https://github.com/ash08642");
+	wxHyperlinkCtrl* github = new wxHyperlinkCtrl(this, wxID_ANY, "Github", "https://github.com/ash08642/PasswortManager/tree/master");
 	labelFont.SetUnderlined(true);
 	github->SetFont(labelFont);
 	github->SetForegroundColour(*app_setting->order6);

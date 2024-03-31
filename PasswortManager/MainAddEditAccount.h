@@ -51,6 +51,10 @@ private:
 	void showPassword(wxMouseEvent& event);
 	void hidePassword(wxMouseEvent& event);
 
-	void generateRandomPassword(wxMouseEvent& event);	//generiert ein sicheres Zufallspasswort
+	/*Diese Funktion erzeugt eine zufällige Zeichenfolge der Länge 14, 
+	die stark genug ist, um auf den meisten Websites als Passwort verwendet 
+	zu werden. Zur Erzeugung von Zufallszahlen haben wir die 
+	Verteilungsfunktion(distribution) von C++ verwendet.*/
+	void generateRandomPassword(wxMouseEvent& event);
 };
 

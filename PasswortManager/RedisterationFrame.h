@@ -35,8 +35,9 @@ public:
 	wxStaticText* get_signInButton();
 	wxStaticText* get_signUpButton();
 
-	bool validate_signUpData();
-	bool validate_signInData();
+	
+	bool validate_signUpData();	//gibt true zurück, wenn signUp erfolgreich war
+	bool validate_signInData();	//gibt true zurück, wenn signIn erfolgreich war
 
 	void clear_fields();
 

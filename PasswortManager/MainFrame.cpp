@@ -39,7 +39,10 @@ MainFrame::MainFrame(const wxString& title, const wxPoint& pos, const wxSize& si
 	control_panel->SetBackgroundColour(*appSetting->order21);
 
 	accounts_sizer = new wxBoxSizer(wxVERTICAL);
-	accounts_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(250, 850));
+	accounts_panel = new wxScrolledWindow(this, wxID_ANY, wxDefaultPosition, wxSize(250, 850));
+	accounts_panel->SetWindowStyle(wxVSCROLL);
+	accounts_panel->SetScrollbars(20, 20, 50, 50);
+	accounts_panel->SetScrollbar(wxVERTICAL, 0, 16, 50);
 	accounts_panel->SetBackgroundColour(*appSetting->order24);
 
 	window_sizer = new wxBoxSizer(wxVERTICAL);
@@ -52,7 +55,9 @@ MainFrame::MainFrame(const wxString& title, const wxPoint& pos, const wxSize& si
 	control_sizer->AddStretchSpacer(1);
 	control_sizer->Add(sign_out, 0, wxALIGN_TOP | wxEXPAND, 0);
 
+	//ScrolledWidgetsPane* my_image = new ScrolledWidgetsPane(accounts_panel, wxID_ANY);
 	accounts_sizer->Add(searchBar, 0, wxEXPAND, 0);
+	//accounts_sizer->Add(my_image, 1, wxEXPAND);
 
 	//window_sizer->Add(backgroundPanel, 1, wxEXPAND, 0);
 	window_sizer->AddStretchSpacer(1);

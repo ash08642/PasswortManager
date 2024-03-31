@@ -91,6 +91,9 @@
     <ClCompile Include="MoreInfoDialog.cpp">
       <Filter>Views</Filter>
     </ClCompile>
+    <ClCompile Include="ScrolledWidgetsPane.cpp">
+      <Filter>Custom Controls</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MasterAccount.h">
@@ -155,6 +158,9 @@
     </ClInclude>
     <ClInclude Include="MoreInfoDialog.h">
       <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrolledWidgetsPane.h">
+      <Filter>Custom Controls</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

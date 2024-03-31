@@ -152,6 +152,7 @@
     <ClCompile Include="PasswordManagerApp.cpp" />
     <ClCompile Include="Password.cpp" />
     <ClCompile Include="RedisterationFrame.cpp" />
+    <ClCompile Include="ScrolledWidgetsPane.cpp" />
     <ClCompile Include="SearchBar.cpp" />
     <ClCompile Include="SignUpPanel.cpp" />
     <ClCompile Include="SignInPanel.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="PasswordManagerApp.h" />
     <ClInclude Include="Password.h" />
     <ClInclude Include="RedisterationFrame.h" />
+    <ClInclude Include="ScrolledWidgetsPane.h" />
     <ClInclude Include="SearchBar.h" />
     <ClInclude Include="SignUpPanel.h" />
     <ClInclude Include="SignInPanel.h" />

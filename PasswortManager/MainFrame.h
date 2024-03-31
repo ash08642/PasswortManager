@@ -13,6 +13,7 @@
 #include "SearchBar.h"
 #include "BackgroundPanel.h"
 #include "SVGPanel.h"
+#include "ScrolledWidgetsPane.h"
 #include "AppSetting.h"
 #include "HttpClient.h"
 
@@ -34,7 +35,7 @@ private:
 	MasterAccount* masterAccount;
 
 	wxPanel* control_panel;
-	wxPanel* accounts_panel;
+	wxScrolledWindow* accounts_panel;
 
 	BackgroundPanel* backgroundPanel2;
 

@@ -22,7 +22,11 @@ public:
 	wxString get_confirmPass();
 
 	void clear_fields();
-	bool isPasswordStrong();	//prüft, ob das eingegebene Passwort den Anforderungen entspricht.
+
+	/* Diese Funktion prüft, ob eine Zeichenkette (das Passwort) sicher ist, 
+	d.h. sie enthält mindestens einen Großbuchstaben, einen Kleinbuchstaben, 
+	eine Zahl, ein Sonderzeichen und hat eine Länge von mindestens 8.*/
+	bool isPasswordStrong();
 
 private:
 	TextBox* identityBox = nullptr;
